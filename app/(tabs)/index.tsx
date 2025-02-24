@@ -1,67 +1,46 @@
-import { Image, StyleSheet, Text, Platform } from 'react-native';
+import { View, Image, StyleSheet, Text, ImageBackground, Pressable } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+
+
 
 export default function HomeScreen() {
   return (
-    
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ImageBackground
+      source={require('../../assets/images/storebg.png')}
+      style={styles.background}
+      resizeMode='cover'
+    >
+     
+        <Pressable >
+          <Text style={styles.buttonText}>Go to Store</Text>
+        </Pressable>
+
+    </ImageBackground>
+   
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  background:{
+    flex: 1,
+    justifyContent:'center',
     alignItems: 'center',
-    gap: 8,
-    color: '#FFFFFF',
   },
+
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente para legibilidad
+    padding: 20,
+    borderRadius: 10,
+  },
+ 
+ 
+  buttonText:{
+    color: 'black',
+    fontSize: 16,
+    textAlign: 'center',
+    fontWeight: 900,
+  },
+
   stepContainer: {
     gap: 8,
     marginBottom: 8,
